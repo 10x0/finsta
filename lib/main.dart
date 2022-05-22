@@ -1,4 +1,9 @@
+import 'package:finsta/configs/constants.dart';
+import 'package:finsta/configs/routes.dart';
+import 'package:finsta/configs/themes.dart';
+import 'package:finsta/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,24 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Finsta',
-      theme: ThemeData(
-        useMaterial3: true,
-        primarySwatch: Colors.deepPurple,
-      ),
-      home: const HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Home Screen')),
+      theme: Themes.light(context),
+      darkTheme: Themes.dark(context),
+      home: const LoginScreen(),
+      onGenerateRoute: generateRoutes,
+      navigatorKey: Navigation.key,
     );
   }
 }
