@@ -1,11 +1,9 @@
 import 'package:finsta/configs/constants.dart';
-import 'package:finsta/screens/home.dart';
-import 'package:finsta/screens/login.dart';
-import 'package:finsta/screens/register.dart';
+import 'package:finsta/presentation/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 Route generateRoutes(RouteSettings settings) {
-  final args = settings.arguments;
+  // final args = settings.arguments;
 
   switch (settings.name) {
     case Navigation.home:
